@@ -568,3 +568,16 @@ html,body,#root{max-width:100%;overflow-x:clip}
   .product-buy-row>strong{max-width:76px;font-size:7px}
   .product-whatsapp{padding:8px 4px;letter-spacing:.09em}
 }
+
+/* Keep the illustration visible in browsers that mishandle CSS transforms on SVG groups. */
+.newsletter-vector-scene .newsletter-still-life{animation:newsletter-scene-float 9s ease-in-out infinite}
+.newsletter-vector-scene .newsletter-flower-sway,
+.newsletter-vector-scene .newsletter-bee-wings,
+.newsletter-vector-scene .newsletter-bee-body,
+.newsletter-vector-scene .newsletter-jar-motion,
+.newsletter-vector-scene .newsletter-jar-lid-motion,
+.newsletter-vector-scene .newsletter-honey-fill,
+.newsletter-vector-scene .newsletter-honey-surface,
+.newsletter-vector-scene .newsletter-label-glint,
+.newsletter-vector-scene .newsletter-jar-drip{animation:none!important}
+@keyframes newsletter-scene-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
