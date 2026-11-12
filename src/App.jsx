@@ -272,7 +272,7 @@ function NewsletterStillLife() {
         <rect width="720" height="560" fill="url(#nectar-stage-glow)" />
         <ellipse cx="365" cy="493" rx="241" ry="25" fill="#080604" opacity=".5" filter="url(#nectar-soft-shadow)" />
         <ellipse cx="365" cy="491" rx="214" ry="11" fill="#d2a75d" opacity=".2" />
-        <g className="newsletter-flower-sway" transform="rotate(0 253 480)">
+        <g transform="rotate(0 253 480)">
           <animateTransform attributeName="transform" type="rotate" values="-.7 253 480;1 253 480;-.7 253 480" dur="6.2s" repeatCount="indefinite" begin={motionBegin} />
           <path d="M249 289c-9 75 21 116-1 197-8 32-5 57 2 76 13-25 19-53 14-79-12-75 18-126 4-200" fill="none" stroke="url(#sunflower-stem)" strokeWidth="12" strokeLinecap="round" />
           <path d="M259 397c-43-45-78-40-100-29 15 38 46 59 101 48" fill="url(#sunflower-leaf)" stroke="#c7b876" strokeOpacity=".48" strokeWidth="1.5" />
@@ -286,13 +286,13 @@ function NewsletterStillLife() {
             <g clipPath="url(#sunflower-seed-clip)">{seeds.map((seed, index) => <ellipse key={'sunflower-seed-' + index} cx={seed.x} cy={seed.y} rx={seed.size} ry={seed.size * 1.45} transform={'rotate(' + (index * 19) + ' ' + seed.x + ' ' + seed.y + ')'} fill={index % 2 ? '#513319' : '#f5d88d'} opacity={index % 2 ? '.75' : '.82'} />)}</g>
           </g>
           <g transform="translate(304 203) rotate(18)">
-            <g className="newsletter-bee-wings" transform="scale(1 1)">
+            <g transform="scale(1 1)">
               <animateTransform attributeName="transform" type="scale" values="1 .62;1 1;1 .62" dur=".18s" repeatCount="indefinite" begin={motionBegin} />
               <path d="M-8-12C-37-45-31-72-14-73 3-72 12-43 4-17Z" fill="url(#bee-wing)" stroke="#fff4dc" strokeOpacity=".85" strokeWidth="1.5" />
               <path d="M3-14C8-47 30-62 42-52 54-40 32-16 12-7Z" fill="url(#bee-wing)" stroke="#fff4dc" strokeOpacity=".72" strokeWidth="1.3" />
               <path d="M-17-21C-19-44-14-59-4-67M11-18C20-34 31-43 41-46" fill="none" stroke="#fff" strokeOpacity=".62" strokeWidth="1" />
             </g>
-            <g className="newsletter-bee-body" transform="translate(0 0)">
+            <g transform="translate(0 0)">
               <animateTransform attributeName="transform" type="translate" values="0 0;0 -2;0 0" dur="2.3s" repeatCount="indefinite" begin={motionBegin} />
               <path d="M-21-16C-9-27 15-25 29-15c16 12 16 29 1 39-15 10-38 7-51-4-12-10-12-25 0-36Z" fill="url(#bee-fur)" stroke="#f7dda0" strokeWidth="1.6" />
               <path d="M-3-24 4 22M12-24 18 19" stroke="#38291e" strokeWidth="8" strokeLinecap="round" />
@@ -303,10 +303,10 @@ function NewsletterStillLife() {
             </g>
           </g>
         </g>
-        <g className="newsletter-jar-motion" transform="translate(0 0)">
+        <g transform="translate(0 0)">
           <animateTransform attributeName="transform" type="translate" values="0 0;0 -5;0 -2;0 0" dur="4.4s" repeatCount="indefinite" begin={motionBegin} />
           <ellipse cx="521" cy="490" rx="112" ry="12" fill="#070504" opacity=".5" filter="url(#nectar-soft-shadow)" />
-          <g className="newsletter-jar-lid-motion" transform="translate(0 0)">
+          <g transform="translate(0 0)">
             <animateTransform attributeName="transform" type="translate" values="0 0;0 -2;0 0" dur="4.4s" repeatCount="indefinite" begin={motionBegin} />
             <path d="M460 168h122q10 0 10 10v33q0 10-10 10H460q-10 0-10-10v-33q0-10 10-10Z" fill="url(#jar-gold-gradient)" stroke="#f2dda9" strokeWidth="1.5" />
             <ellipse cx="521" cy="170" rx="61" ry="10" fill="#d8ba78" stroke="#f5e1af" strokeWidth="1.5" />
@@ -314,10 +314,10 @@ function NewsletterStillLife() {
           </g>
           <path d="M453 204h139v43h11c17 19 27 44 27 71v148q0 24-25 24H440q-25 0-25-24V318c0-27 10-52 27-71h11Z" fill="#fff2cf" fillOpacity=".1" stroke="#fff1d2" strokeOpacity=".9" strokeWidth="3" />
           <g clipPath="url(#nectar-jar-clip)">
-            <path className="newsletter-honey-fill" d="M407 323c48-15 150-10 235 0v178H407Z" fill="url(#jar-honey-gradient)" transform="translate(0 0)">
+            <path d="M407 323c48-15 150-10 235 0v178H407Z" fill="url(#jar-honey-gradient)" transform="translate(0 0)">
               <animateTransform attributeName="transform" type="translate" values="0 0;0 -2;0 0" dur="4.4s" repeatCount="indefinite" begin={motionBegin} />
             </path>
-            <path className="newsletter-honey-surface" d="M415 324c25-8 47-7 70 0s47 8 70 0 48-7 76 0" fill="none" stroke="#ffe08a" strokeWidth="4" strokeOpacity=".88" transform="translate(0 0)">
+            <path d="M415 324c25-8 47-7 70 0s47 8 70 0 48-7 76 0" fill="none" stroke="#ffe08a" strokeWidth="4" strokeOpacity=".88" transform="translate(0 0)">
               <animateTransform attributeName="transform" type="translate" values="0 0;0 -2;0 0" dur="3.2s" repeatCount="indefinite" begin={motionBegin} />
             </path>
             <path d="M430 357c37 7 59 6 92-1m16 2c28 3 45 2 70-2M430 387c26 4 44 4 61 1" fill="none" stroke="#ffdc80" strokeOpacity=".24" strokeWidth="2" />
@@ -335,12 +335,12 @@ function NewsletterStillLife() {
             <text x="521" y="415" textAnchor="middle" fill="#d8bb7c" fontFamily="Georgia,serif" fontSize="15" letterSpacing="3">HONEY</text>
             <path d="M474 425h94" stroke="#c7a55e" strokeWidth=".8" />
             <text x="521" y="440" textAnchor="middle" fill="#d9c7a1" fontFamily="Arial,sans-serif" fontSize="6.5" letterSpacing="1.3">RAW · SMALL BATCH · 500 G</text>
-            <path className="newsletter-label-glint" d="M452 349h40v98h-40z" fill="url(#jar-glass-gradient)" opacity=".3" transform="translate(-15 0)">
+            <path d="M452 349h40v98h-40z" fill="url(#jar-glass-gradient)" opacity=".3" transform="translate(-15 0)">
               <animateTransform attributeName="transform" type="translate" values="-15 0;99 0;99 0;-15 0" dur="4.2s" repeatCount="indefinite" begin={motionBegin} />
             </path>
           </g>
-          <path className="newsletter-jar-glint" d="M589 270c11 25 13 48 13 73" fill="none" stroke="#fff8dd" strokeWidth="7" strokeLinecap="round" />
-          <path className="newsletter-jar-drip" d="M596 325c-1 13 4 19 3 30-1 7-6 10-8 4-3-9 4-17 1-29Z" fill="#e8ad42" stroke="#ffe6a0" strokeWidth="1" transform="translate(0 0)">
+          <path d="M589 270c11 25 13 48 13 73" fill="none" stroke="#fff8dd" strokeWidth="7" strokeLinecap="round" />
+          <path d="M596 325c-1 13 4 19 3 30-1 7-6 10-8 4-3-9 4-17 1-29Z" fill="#e8ad42" stroke="#ffe6a0" strokeWidth="1" transform="translate(0 0)">
             <animateTransform attributeName="transform" type="translate" values="0 -2;0 5;0 14;0 -2" dur="3.8s" repeatCount="indefinite" begin={motionBegin} />
             <animate attributeName="opacity" values=".2;1;.35;.2" dur="3.8s" repeatCount="indefinite" begin={motionBegin} />
           </path>
