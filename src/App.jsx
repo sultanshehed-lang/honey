@@ -19,7 +19,7 @@ const readLocal = (key, fallback) => {
 };
 const BUSINESS_ADDRESS = 'Redawan, Ikram Pur, Biozo Kharki, Katlang, Mardan 23090';
 const BUSINESS_PHONE = '03429753834';
-const LOCATION = { latitude: 34.4966736, longitude: 72.0109411 };
+const LOCATION = { latitude: 34.4738169, longitude: 71.9809102 };
 const BUSINESS_DESTINATION = LOCATION.latitude + ',' + LOCATION.longitude;
 
 const fadeUp = {
