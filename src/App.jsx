@@ -133,14 +133,17 @@ function ProductCard({ product, onOpen, onAdd, onOrder, priceFor, index = 0 }) {
 }
 
 function PakistanMap({ selected }) {
-  const mapUrl = 'https://www.openstreetmap.org/export/embed.html?bbox=60.5%2C23.4%2C78.3%2C37.5&layer=mapnik&marker=' + LOCATION.latitude + '%2C' + LOCATION.longitude;
-  const fullMapUrl = 'https://www.openstreetmap.org/?mlat=30.5&mlon=69.4#map=5/30.5/69.4';
+  const coordinates = selected.coordinates || [LOCATION.latitude, LOCATION.longitude];
+  const latitude = coordinates[0];
+  const longitude = coordinates[1];
+  const mapUrl = 'https://www.openstreetmap.org/export/embed.html?bbox=60.5%2C23.4%2C78.3%2C37.5&layer=mapnik&marker=' + latitude + '%2C' + longitude;
+  const fullMapUrl = 'https://www.openstreetmap.org/?mlat=' + latitude + '&mlon=' + longitude + '#map=7/' + latitude + '/' + longitude;
   return (
     <div className="map-canvas">
       <iframe className="pakistan-map-frame" title="Geographic map of Pakistan and its honey-producing regions" src={mapUrl} loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
       <div className="map-wash" aria-hidden="true" />
       <div className="map-topline"><span><i /> PAKISTAN · ORIGIN MAP</span><a href={fullMapUrl} target="_blank" rel="noreferrer">OPEN MAP <ArrowUpRight size={12} /></a></div>
-      <div className="map-focus" aria-live="polite"><span className="map-focus-kicker">REGION IN FOCUS</span><strong>{selected.name}</strong><span className="map-focus-pin"><MapPin size={13} /> SULTAN SHEHED · KPK</span></div>
+      <div className="map-focus" aria-live="polite"><span className="map-focus-kicker">REGION IN FOCUS</span><strong>{selected.name}</strong><span className="map-focus-pin"><MapPin size={13} /> SULTAN SHEHED · {selected.shortName || selected.name}</span></div>
       <div className="map-caption"><span className="map-caption-dot" /> SEVEN REGIONS <span>—</span> ONE NATURAL HERITAGE</div>
     </div>
   );
@@ -635,7 +638,7 @@ function App() {
           <div className="origin-experience">
             <div className="origin-selector" role="tablist" aria-label="Select a honey origin">
               <span className="origin-selector-label">EXPLORE PAKISTAN</span>
-              {origins.map((origin, index) => <button key={origin.id} className={'origin-tab' + (selectedOrigin.id === origin.id ? ' origin-tab-active' : '')} role="tab" aria-selected={selectedOrigin.id === origin.id} onClick={() => setSelectedOrigin(origin)}><span className="origin-tab-number">0{index + 1}</span><span>{origin.name}</span><ArrowUpRight className="origin-tab-arrow" size={16} /></button>)}
+              {origins.map((origin, index) => <button key={origin.id} className={'origin-tab' + (selectedOrigin.id === origin.id ? ' origin-tab-active' : '')} role="tab" aria-label={'Show ' + origin.name} aria-selected={selectedOrigin.id === origin.id} onClick={() => setSelectedOrigin(origin)}><span className="origin-tab-number">0{index + 1}</span><span className="origin-tab-name">{origin.name}</span><span className="origin-tab-short">{origin.shortName || origin.name}</span><ArrowUpRight className="origin-tab-arrow" size={16} /></button>)}
               <span className="origin-selector-footer"><span className="origin-selector-dot" /> KPK · OUR HOME REGION</span>
             </div>
             <div className="origin-map-column"><PakistanMap selected={selectedOrigin} /></div>

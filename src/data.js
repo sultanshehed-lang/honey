@@ -25,7 +25,7 @@ export const products = [
 
 export const origins = [
   {
-    id: 'kpk', name: 'Khyber Pakhtunkhwa', shortName: 'KPK', region: 'Redawan · Ikram Pur · Biozo Kharki · Katlang · Mardan',
+    id: 'kpk', name: 'Khyber Pakhtunkhwa', shortName: 'KPK', coordinates: [34.4967, 72.0109], region: 'Redawan · Ikram Pur · Biozo Kharki · Katlang · Mardan',
     headline: 'Our home, among orchard and mountain bloom.',
     story: 'Sultan Shehed begins in Redawan, Ikram Pur, Biozo Kharki, Katlang, Mardan. Khyber Pakhtunkhwa brings together orchard trees, foothills and high valleys; its varied flowering seasons give local honey a character all its own.',
     varieties: ['Pulosah Honey', 'Bera Honey'],
@@ -38,7 +38,7 @@ export const origins = [
     featured: true,
   },
   {
-    id: 'punjab', name: 'Punjab', shortName: 'Punjab', region: 'River plains and flowering orchards',
+    id: 'punjab', name: 'Punjab', shortName: 'Punjab', coordinates: [31.1704, 72.7097], region: 'River plains and flowering orchards',
     headline: 'Open plains, orchard edges, changing bloom.',
     story: 'Broad river plains and cultivated landscapes create a varied forage calendar. The floral character of any honey here follows the bloom, local weather and careful harvest timing.',
     varieties: [], productIds: [],
@@ -49,7 +49,7 @@ export const origins = [
     imageSource: 'https://commons.wikimedia.org/wiki/File:A_wheat_field_in_Punjab,_Pakistan.jpg',
   },
   {
-    id: 'sindh', name: 'Sindh', shortName: 'Sindh', region: 'Indus plain and dryland bloom',
+    id: 'sindh', name: 'Sindh', shortName: 'Sindh', coordinates: [26.0, 68.0], region: 'Indus plain and dryland bloom',
     headline: 'A resilient landscape with a distinct season.',
     story: 'Along the Indus and across dryland country, flowering windows can be brief. Harvest character depends on the local plants in bloom and the conditions of each season.',
     varieties: [], productIds: [],
@@ -60,7 +60,7 @@ export const origins = [
     imageSource: 'https://commons.wikimedia.org/wiki/File:View_of_Makli_by_Usman_Ghani_(cropped).jpg',
   },
   {
-    id: 'balochistan', name: 'Balochistan', shortName: 'Balochistan', region: 'Highlands and wild country',
+    id: 'balochistan', name: 'Balochistan', shortName: 'Balochistan', coordinates: [28.5, 65.5], region: 'Highlands and wild country',
     headline: 'Wild country, shaped by sun and altitude.',
     story: 'Balochistan spans dry plains, uplands and mountain pockets. Its flowering plants make a distinctive seasonal forage for bees wherever healthy habitat is protected.',
     varieties: [], productIds: [],
@@ -71,7 +71,7 @@ export const origins = [
     imageSource: 'https://commons.wikimedia.org/wiki/File:Landscape_Balochistan.jpg',
   },
   {
-    id: 'ict', name: 'Islamabad Capital Territory', shortName: 'Islamabad', region: 'Potohar foothills',
+    id: 'ict', name: 'Islamabad Capital Territory', shortName: 'Islamabad', coordinates: [33.7294, 73.0373], region: 'Potohar foothills',
     headline: 'The Potohar bloom, close to the capital.',
     story: 'The Potohar landscape around Islamabad brings together scrub, orchard and seasonal wildflowers. Its honey character is best understood one small harvest at a time.',
     varieties: [], productIds: [],
@@ -82,7 +82,7 @@ export const origins = [
     imageSource: 'https://commons.wikimedia.org/wiki/File:The_Faisal_Mosque_Islamabad.jpg',
   },
   {
-    id: 'gb', name: 'Gilgit-Baltistan', shortName: 'Gilgit-Baltistan', region: 'High mountain valleys',
+    id: 'gb', name: 'Gilgit-Baltistan', shortName: 'Gilgit-Baltistan', coordinates: [35.9208, 74.3087], region: 'High mountain valleys',
     headline: 'A short bloom beneath immense peaks.',
     story: 'At altitude, flowering windows are brief and precious. Mountain honey carries the freshness of alpine herbs and the distinct character of a high-country season.',
     varieties: [], productIds: [],
@@ -93,7 +93,7 @@ export const origins = [
     imageSource: 'https://commons.wikimedia.org/wiki/File:View_from_Hunza_valley.jpg',
   },
   {
-    id: 'ajk', name: 'Azad Jammu and Kashmir', shortName: 'AJK', region: 'Himalayan foothills and forest',
+    id: 'ajk', name: 'Azad Jammu and Kashmir', shortName: 'AJK', coordinates: [34.3572, 73.4764], region: 'Himalayan foothills and forest',
     headline: 'Forest, foothill and spring blossom.',
     story: 'Forested slopes and Himalayan foothills offer a rich mosaic of blossoms. Honey from this landscape can be floral and full-bodied, with the exact notes guided by its season.',
     varieties: [], productIds: [],
