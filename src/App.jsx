@@ -20,6 +20,7 @@ const readLocal = (key, fallback) => {
 const BUSINESS_ADDRESS = 'Redawan, Ikram Pur, Biozo Kharki, Katlang, Mardan 23090';
 const BUSINESS_PHONE = '03429753834';
 const LOCATION = { latitude: 34.4966736, longitude: 72.0109411 };
+const BUSINESS_DESTINATION = LOCATION.latitude + ',' + LOCATION.longitude;
 
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
@@ -136,14 +137,20 @@ function PakistanMap({ selected }) {
   const coordinates = selected.coordinates || [LOCATION.latitude, LOCATION.longitude];
   const latitude = coordinates[0];
   const longitude = coordinates[1];
-  const mapUrl = 'https://www.openstreetmap.org/export/embed.html?bbox=60.5%2C23.4%2C78.3%2C37.5&layer=mapnik&marker=' + latitude + '%2C' + longitude;
-  const fullMapUrl = 'https://www.openstreetmap.org/?mlat=' + latitude + '&mlon=' + longitude + '#map=7/' + latitude + '/' + longitude;
+  const isHomeRegion = selected.id === 'kpk';
+  const mapBounds = isHomeRegion
+    ? [longitude - 0.12, latitude - 0.08, longitude + 0.12, latitude + 0.08]
+    : [60.5, 23.4, 78.3, 37.5];
+  const bbox = mapBounds.map((value) => value.toFixed(5)).join('%2C');
+  const mapUrl = 'https://www.openstreetmap.org/export/embed.html?bbox=' + bbox + '&layer=mapnik&marker=' + latitude + '%2C' + longitude;
+  const fullMapUrl = 'https://www.openstreetmap.org/?mlat=' + latitude + '&mlon=' + longitude + '#map=' + (isHomeRegion ? '14' : '7') + '/' + latitude + '/' + longitude;
+  const pinLabel = selected.locationLabel || selected.shortName || selected.name;
   return (
     <div className="map-canvas">
       <iframe className="pakistan-map-frame" title="Geographic map of Pakistan and its honey-producing regions" src={mapUrl} loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
       <div className="map-wash" aria-hidden="true" />
       <div className="map-topline"><span><i /> PAKISTAN · ORIGIN MAP</span><a href={fullMapUrl} target="_blank" rel="noreferrer">OPEN MAP <ArrowUpRight size={12} /></a></div>
-      <div className="map-focus" aria-live="polite"><span className="map-focus-kicker">REGION IN FOCUS</span><strong>{selected.name}</strong><span className="map-focus-pin"><MapPin size={13} /> SULTAN SHEHED · {selected.shortName || selected.name}</span></div>
+      <div className="map-focus" aria-live="polite"><span className="map-focus-kicker">REGION IN FOCUS</span><strong>{selected.name}</strong><span className="map-focus-pin"><MapPin size={13} /> SULTAN SHEHED · {pinLabel}</span></div>
       <div className="map-caption"><span className="map-caption-dot" /> SEVEN REGIONS <span>—</span> ONE NATURAL HERITAGE</div>
     </div>
   );
@@ -677,7 +684,7 @@ function App() {
 
         <section id="delivery" className="delivery-section section-pad">
           <div className="delivery-copy"><Eyebrow>FROM OUR HOME TO YOURS</Eyebrow><h2>Thoughtfully sent.<br /><em>Across Pakistan.</em></h2><p>We deliver throughout Pakistan. Add your address at checkout and we’ll confirm the available service, delivery fee and estimated arrival with you on WhatsApp before dispatch.</p>{storeSettings.deliveryEstimate && <p className="delivery-estimate">Current estimate: {storeSettings.deliveryEstimate}. We confirm the route with you before dispatch.</p>}<div className="delivery-points"><span><Check size={15} /> Carefully packed at origin</span><span><Check size={15} /> Local delivery arranged personally</span><span><Check size={15} /> No unverified delivery promises</span></div><button className="button button-dark" onClick={() => { setOrderChannel('checkout'); setPanel('cart'); }}>Review your bag <ArrowRight size={16} /></button></div>
-          <div className="location-card"><div className="location-card-heading"><span className="location-pin"><MapPin size={17} /></span><span><strong>Sultan Shehed · Pakistan</strong><small>Redawan, Ikram Pur, Biozo Kharki, Katlang, Mardan 23090</small></span><span className="location-live"><i /> OUR HOME</span></div><div className="location-card-bottom"><span><strong>Rooted in Khyber Pakhtunkhwa</strong><small>Delivery and pickup details are confirmed directly.</small></span><a className="directions-link" href={'https://www.google.com/maps/dir/?api=1&destination=' + encodeURIComponent(BUSINESS_ADDRESS + ', Pakistan')} target="_blank" rel="noreferrer"><MapPin size={15} /> Get directions</a></div></div>
+          <div className="location-card"><div className="location-card-heading"><span className="location-pin"><MapPin size={17} /></span><span><strong>Sultan Shehed · Pakistan</strong><small>Redawan, Ikram Pur, Biozo Kharki, Katlang, Mardan 23090</small></span><span className="location-live"><i /> OUR HOME</span></div><div className="location-card-bottom"><span><strong>Rooted in Khyber Pakhtunkhwa</strong><small>Delivery and pickup details are confirmed directly.</small></span><a className="directions-link" href={'https://www.google.com/maps/dir/?api=1&destination=' + encodeURIComponent(BUSINESS_DESTINATION)} target="_blank" rel="noreferrer"><MapPin size={15} /> Get directions</a></div></div>
         </section>
 
         <section id="experience" className="experience-section section-pad">

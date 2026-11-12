@@ -25,7 +25,7 @@ export const products = [
 
 export const origins = [
   {
-    id: 'kpk', name: 'Khyber Pakhtunkhwa', shortName: 'KPK', coordinates: [34.4967, 72.0109], region: 'Redawan · Ikram Pur · Biozo Kharki · Katlang · Mardan',
+    id: 'kpk', name: 'Khyber Pakhtunkhwa', shortName: 'KPK', locationLabel: 'REDAWAN · IKRAM PUR · 23090', coordinates: [34.4966736, 72.0109411], region: 'Redawan · Ikram Pur · Biozo Kharki · Katlang · Mardan',
     headline: 'Our home, among orchard and mountain bloom.',
     story: 'Sultan Shehed begins in Redawan, Ikram Pur, Biozo Kharki, Katlang, Mardan. Khyber Pakhtunkhwa brings together orchard trees, foothills and high valleys; its varied flowering seasons give local honey a character all its own.',
     varieties: ['Pulosah Honey', 'Bera Honey'],
